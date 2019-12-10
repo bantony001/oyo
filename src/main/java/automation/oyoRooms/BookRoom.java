@@ -10,12 +10,13 @@ public class BookRoom{
 	
 	public static void main(String[] args) throws InterruptedException {
 		WebDriver driver;
-		System.setProperty("webdriver.chrome.driver", "D:\\Softwares\\eclipse-workspace\\lib\\chromedriver.exe");
-		driver = new ChromeDriver();
+
 		ConfigFileReader configFile = new ConfigFileReader();
 		String driverValue = configFile.getDriverPath();
 		String url = configFile.getApplicationUrl();
 		String city = configFile.getCity();
+		System.setProperty("webdriver.chrome.driver", configFile.getDriverPath());
+		driver = new ChromeDriver();
 		System.out.println(driverValue + " " + url);
 		driver.get("https://www.oyorooms.com/");
 		driver.manage().window().maximize();
