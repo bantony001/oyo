@@ -12,7 +12,7 @@ public class BookRoom{
 		WebDriver driver;
 		ConfigFileReader configFile = new ConfigFileReader();
 		String city = configFile.getCity();
-		System.setProperty("webdriver.chrome.driver", configFile.getDriverPath());
+		System.setProperty("webdriver.chrome.driver", System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + configFile.getDriverPath());
 		driver = new ChromeDriver();
 		driver.get(configFile.getApplicationUrl());
 		driver.manage().window().maximize();
