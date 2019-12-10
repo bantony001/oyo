@@ -5,6 +5,9 @@ import java.util.Set;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+import io.github.bonigarcia.wdm.ChromeDriverManager;
 
 public class BookRoom{
 	
@@ -12,7 +15,7 @@ public class BookRoom{
 		WebDriver driver;
 		ConfigFileReader configFile = new ConfigFileReader();
 		String city = configFile.getCity();
-		System.setProperty("webdriver.chrome.driver", System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + configFile.getDriverPath());
+		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + configFile.getDriverPath());
 		driver = new ChromeDriver();
 		driver.get(configFile.getApplicationUrl());
 		driver.manage().window().maximize();
