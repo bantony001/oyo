@@ -10,17 +10,12 @@ public class BookRoom{
 	
 	public static void main(String[] args) throws InterruptedException {
 		WebDriver driver;
-
 		ConfigFileReader configFile = new ConfigFileReader();
-		String driverValue = configFile.getDriverPath();
-		String url = configFile.getApplicationUrl();
 		String city = configFile.getCity();
 		System.setProperty("webdriver.chrome.driver", configFile.getDriverPath());
 		driver = new ChromeDriver();
-		System.out.println(driverValue + " " + url);
-		driver.get("https://www.oyorooms.com/");
+		driver.get(configFile.getApplicationUrl());
 		driver.manage().window().maximize();
-		//driver.findElement(By.xpath("//input[@id='autoComplete__home']")).sendKeys("Kolkata, West Bengal, India");
 		driver.findElement(By.xpath("//input[@id='autoComplete__home']")).sendKeys(city);
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//div[@class='oyo-row oyo-row--no-spacing']/div[2]//span[@class='d-text16 geoSuggestionsList__locationName' and contains(text(), 'Kolkata')]")).click();
